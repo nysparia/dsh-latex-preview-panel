@@ -8,20 +8,51 @@ this bundle deliberately leaves alone, and its dock card is what gets hidden.
 
 ## Install
 
-From this repository, straight into a profile:
+Two prerequisites: `dsh-math-render` is already in the profile, and you can open
+the Session panel (the right-hand column).
+
+### A. Through the harness — recommended
+
+Ask a DSH agent session to install it, or call the tool yourself:
+
+```
+plugin_manager({ action: "install_bundle",
+                 target: "github:nysparia/dsh-latex-preview-panel" })
+```
+
+`install_bundle` hands the target to the profile's package manager, which resolves
+the git spec, adds the dependency, appends the bundle to `dsh.profile.bundles`,
+and composes its row. A build that rejects a git spec can use path B instead.
+
+### B. By hand — works on every build
 
 ```bash
+cd ~/.dsh/profiles/<profile>        # the profile that runs your web app
 pnpm add github:nysparia/dsh-latex-preview-panel
 ```
 
-or, from a local checkout, through the harness's own installer:
+Then add `"dsh-latex-preview-panel"` to `dsh.profile.bundles` in that profile's
+`package.json`, and restart the harness. Two separate things are needed and only
+the second one is easy to forget: the dependency puts the code on disk, and the
+**bundles entry** is what makes the profile read the bundle's `cordis.patch.yml`
+and insert the `latex-preview` row at boot.
+
+### C. From a local checkout
 
 ```
 plugin_manager({ action: "install_bundle",
                  target: "/absolute/path/to/dsh-latex-preview-panel" })
 ```
 
-`private: true` keeps it off npm on purpose: it is a companion to
+### Verify
+
+After the restart, open the Session panel and type `$E=mc^2$` in the composer. A
+**LaTeX 预览** section should appear below **后台任务**, and the card that used to
+sit above the composer should be gone. Clear the draft: the section disappears
+along with its title. If the section never appears, check that the bundle is in
+`dsh.profile.bundles` and that the panel is open.
+
+`private: true` keeps this off npm on purpose: it is a companion to
 `dsh-math-render`, not a replacement.
 
 ## Why
@@ -84,5 +115,10 @@ shell's `compact` variant drops it.
   broken.
 - The Session panel must be open to see the card; the composer dock card it
   replaces was always visible.
-- This bundle and `dsh-math-preview-compact` both restyle the same card; install
-  one, not both.
+
+## License
+
+MIT — see [LICENSE](LICENSE). `client.js` carries the TeX tokenizer copied from
+`dsh-math-render@2.0.0` (MIT, © 2026 huanglianqi); the attribution and the
+upstream licence text are in [THIRD-PARTY-NOTICES.md](THIRD-PARTY-NOTICES.md).
+
