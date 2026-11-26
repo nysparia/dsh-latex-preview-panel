@@ -115,6 +115,10 @@ shell's `compact` variant drops it.
   broken.
 - The Session panel must be open to see the card; the composer dock card it
   replaces was always visible.
+- Upstream could make both workarounds unnecessary: see
+  [huanglianqi/dsh-math-render#1](https://github.com/huanglianqi/dsh-math-render/issues/1)
+  (`variant: 'compact'` for the preview, and a configurable preview seat). If
+  that lands, uninstall this bundle.
 
 ## License
 
