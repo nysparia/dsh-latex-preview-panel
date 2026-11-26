@@ -115,10 +115,12 @@ shell's `compact` variant drops it.
   broken.
 - The Session panel must be open to see the card; the composer dock card it
   replaces was always visible.
-- Upstream could make both workarounds unnecessary: see
+- Upstream could make this bundle unnecessary. Two separate reports:
   [huanglianqi/dsh-math-render#1](https://github.com/huanglianqi/dsh-math-render/issues/1)
-  (`variant: 'compact'` for the preview, and a configurable preview seat). If
-  that lands, uninstall this bundle.
+  asks for `variant: 'compact'` on the preview (that alone drops the KaTeX
+  override rules here), and
+  [huanglianqi/dsh-math-render#2](https://github.com/huanglianqi/dsh-math-render/issues/2)
+  asks for a configurable preview seat (that alone drops this whole bundle).
 
 ## License
 
