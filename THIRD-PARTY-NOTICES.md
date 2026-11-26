@@ -24,10 +24,11 @@ tokenizer, this copy should be refreshed from the same version.
 
 ### Why not depend on it
 
-`dsh-math-render` exports neither its tokenizer nor its preview component, so
-the only ways to reuse them are a fork of that package or this copy. A fork
-would have to be re-synced on every upstream release; the copy is 154 lines and
-independent of everything else in this bundle.
+`dsh-math-render` has no supported API for this. Its tokenizer is reachable at
+`internals.splitMath`, but that object is commented "Exposed for the offline test
+harness only", and the preview component itself is not exported at all. So the
+choices were: depend on a debug-only export, fork the package and re-sync on
+every release, or copy 154 lines. This bundle copies.
 
 ### Upstream license text
 
