@@ -1,0 +1,49 @@
+{
+  "name": "dsh-latex-preview-panel",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Moves the composer LaTeX preview out of the composer and into a Session-panel section card on the right.",
+  "type": "module",
+  "license": "MIT",
+  "main": "index.js",
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "index.js",
+    "client.js",
+    "cordis.patch.yml",
+    "README.md",
+    "LICENSE",
+    "THIRD-PARTY-NOTICES.md"
+  ],
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "latex",
+    "katex",
+    "math",
+    "preview"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nysparia/dsh-latex-preview-panel.git"
+  },
+  "homepage": "https://github.com/nysparia/dsh-latex-preview-panel#readme",
+  "bugs": {
+    "url": "https://github.com/nysparia/dsh-latex-preview-panel/issues"
+  },
+  "dsh": {
+    "engines": {
+      "dsh": ">=0.2.1-rc.1"
+    },
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web"
+    }
+  }
+}

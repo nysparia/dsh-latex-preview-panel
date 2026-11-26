@@ -1,0 +1,6 @@
+# Bundle layer: a profile that lists this package in `dsh.profile.bundles`
+# inserts this row at boot. The row names the package rather than a path,
+# because a bundle layer resolves every row name against its own directory.
+- insert:
+    - id: latex-preview
+      name: dsh-latex-preview-panel
